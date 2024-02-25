@@ -20,12 +20,12 @@ int main () {
     cout << "Enter Your Play: " << endl;
     getline(cin, usersInput);
 
-    //States Valid Inputs for User
-    if (usersInput != "Rock" || usersInput != "Paper" || usersInput != "Scissors" || usersInput != "rock" || 
-        usersInput != "paper" || usersInput != "scissors") {
+   //States Valid Inputs for User
+    if ((usersInput != "Rock") && (usersInput != "Paper") && (usersInput != "Scissors") && (usersInput != "rock") && 
+        (usersInput != "paper") && (usersInput != "scissors")) {
             cout << "Invalid Input!" << endl;
             cout << "Please enter again with either upper or lowercase \"Rock\" \"Paper\" \"Scissors\"" << endl;
-            getlin(cin, usersInput);
+            getline(cin, usersInput);
         }
 
     //Randomaly Generated Number
@@ -45,46 +45,48 @@ int main () {
 
 //Tik Tak Toe!!!
     //User Wins
-    if (computersPlay == "Rock" && usersInput == "Paper") {
+    if (computersPlay == "Rock" && (usersInput == "Paper" || usersInput == "paper")) {
         cout << usersName << " Win!" << endl;
         cout << "Computer's Play: " << computersPlay << endl;
         cout << usersName << " Play: " << usersInput << endl; 
     }
 
-    if (computersPlay == "Paper" && usersInput == "Scissors") {
+    if (computersPlay == "Paper" && (usersInput == "Scissors" || usersInput == "scissors")) {
         cout << usersName << " Win!" << endl;
         cout << "Computer's Play: " << computersPlay << endl;
         cout << usersName << " Play: " << usersInput << endl; 
     }
 
-    if (computersPlay == "Scissors" && usersInput == "Rock") {
+    if (computersPlay == "Scissors" && (usersInput == "Rock" || usersInput == "rock")) {
         cout << usersName << " Win!" << endl;
         cout << "Computer's Play: " << computersPlay << endl;
         cout << usersName << " Play: " << usersInput << endl; 
     }
 
     //Computer Wins
-    if (computersPlay == "Rock" && usersInput == "Scissors") {
+    if (computersPlay == "Rock" && (usersInput == "Scissors" || usersInput == "scissors")) {
         cout << "Computer Wins!" << endl;
         cout << "Computer's Play: " << computersPlay << endl;
         cout << usersName << " Play: " << usersInput << endl; 
     }
 
-    if (computersPlay == "Paper" && usersInput == "Rock") {
+    if (computersPlay == "Paper" && (usersInput == "Rock" || usersInput == "rock")) {
         cout << "Computer Wins!" << endl;
         cout << "Computer's Play: " << computersPlay << endl;
         cout << usersName << " Play: " << usersInput << endl; 
     }
 
-    if (computersPlay == "Scissors" && usersInput == "Paper") {
+    if (computersPlay == "Scissors" && (usersInput == "Paper" || usersInput == "paper")) {
         cout << "Computer Wins!" << endl;
         cout << "Computer's Play: " << computersPlay << endl;
         cout << usersName << " Play: " << usersInput << endl; 
     }
+
 
     //Generate Ties
-    if ((computersPlay == "Rock" && usersInput == "Rock") || (computersPlay == "Paper" && usersInput == "Paper") || 
-        (computersPlay == "Scissors" && usersInput == "Scissors")) {
+    if ((computersPlay == "Rock" && (usersInput == "Rock" || usersInput == "rock")) ||
+        (computersPlay == "Paper" && (usersInput == "Paper" || usersInput == "paper")) || 
+        (computersPlay == "Scissors" && (usersInput == "Scissors" || usersInput == "scissors"))) {
             cout << "It's a Tie!" << endl;
             cout << "Computer's Play: " << computersPlay << endl;
             cout << usersName << " Play: " << usersInput << endl;
