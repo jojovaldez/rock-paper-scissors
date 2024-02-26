@@ -45,14 +45,14 @@ int main () {
     getline(cin, gameContinuation);
 
     //Invalid Inputs for Game Continuation
-        if ((gameContinuation != "Y" && gameContinuation != "N")) {
-                cout << "Invalid Input!" << endl;
-                cout << "Please try again and enter with no spaces and only uppercase \"Y\" (yes) or \"N\" (no) ";
-                getline(cin, gameContinuation);
-        } else if (gameContinuation == "N") {
-            cout << "Come Back Soon!" << endl;
-            cout << endl;
-        }
+    if ((gameContinuation != "Y" && gameContinuation != "N")) {
+            cout << "Invalid Input!" << endl;
+            cout << "Please try again and enter with no spaces and only uppercase \"Y\" (yes) or \"N\" (no) ";
+            getline(cin, gameContinuation);
+    } else if (gameContinuation == "N") {
+        cout << "Come Back Soon!" << endl;
+        cout << endl;
+    }
 
     //While Statement to Keep Game Going
     while (gameContinuation == "Y") {
@@ -83,63 +83,63 @@ int main () {
         }
 
         //User Wins
-            if (computersPlay == "Rock" && (usersInput == "Paper" || usersInput == "paper")) {
-                cout << endl;
-                cout << usersName << " Win!" << endl;
-                cout << "Computer's Play: " << computersPlay << endl;
-                cout << usersName << " Play: " << usersInput << endl; 
-                userScore += 1;
-            }
+        if (computersPlay == "Rock" && (usersInput == "Paper" || usersInput == "paper")) {
+            cout << endl;
+            cout << usersName << " Win!" << endl;
+            cout << "Computer's Play: " << computersPlay << endl;
+            cout << usersName << " Play: " << usersInput << endl; 
+            userScore += 1;
+        }
 
-            if (computersPlay == "Paper" && (usersInput == "Scissors" || usersInput == "scissors")) {
-                cout << endl;
-                cout << usersName << " Win!" << endl;
-                cout << "Computer's Play: " << computersPlay << endl;
-                cout << usersName << " Play: " << usersInput << endl; 
-                userScore += 1;
-            }
+        if (computersPlay == "Paper" && (usersInput == "Scissors" || usersInput == "scissors")) {
+            cout << endl;
+            cout << usersName << " Win!" << endl;
+            cout << "Computer's Play: " << computersPlay << endl;
+            cout << usersName << " Play: " << usersInput << endl; 
+            userScore += 1;
+        }
 
-            if (computersPlay == "Scissors" && (usersInput == "Rock" || usersInput == "rock")) {
-                cout << endl;
-                cout << usersName << " Win!" << endl;
-                cout << "Computer's Play: " << computersPlay << endl;
-                cout << usersName << " Play: " << usersInput << endl; 
-                userScore += 1;
-            }
+        if (computersPlay == "Scissors" && (usersInput == "Rock" || usersInput == "rock")) {
+            cout << endl;
+            cout << usersName << " Win!" << endl;
+            cout << "Computer's Play: " << computersPlay << endl;
+            cout << usersName << " Play: " << usersInput << endl; 
+            userScore += 1;
+        }
 
         //Computer Wins
-            if (computersPlay == "Rock" && (usersInput == "Scissors" || usersInput == "scissors")) {
-                cout << endl;
-                cout << "Computer Wins!" << endl;
-                cout << "Computer's Play: " << computersPlay << endl;
-                cout << usersName << " Play: " << usersInput << endl; 
-                computerScore += 1;
-            }
+        if (computersPlay == "Rock" && (usersInput == "Scissors" || usersInput == "scissors")) {
+            cout << endl;
+            cout << "Computer Wins!" << endl;
+            cout << "Computer's Play: " << computersPlay << endl;
+            cout << usersName << " Play: " << usersInput << endl; 
+            computerScore += 1;
+        }
 
-            if (computersPlay == "Paper" && (usersInput == "Rock" || usersInput == "rock")) {
-                cout << endl;
-                cout << "Computer Wins!" << endl;
-                cout << "Computer's Play: " << computersPlay << endl;
-                cout << usersName << " Play: " << usersInput << endl; 
-                computerScore += 1;
-            }
+        if (computersPlay == "Paper" && (usersInput == "Rock" || usersInput == "rock")) {
+            cout << endl;
+            cout << "Computer Wins!" << endl;
+            cout << "Computer's Play: " << computersPlay << endl;
+            cout << usersName << " Play: " << usersInput << endl; 
+            computerScore += 1;
+        }
 
-            if (computersPlay == "Scissors" && (usersInput == "Paper" || usersInput == "paper")) {
-                cout << endl;
-                cout << "Computer Wins!" << endl;
-                cout << "Computer's Play: " << computersPlay << endl;
-                cout << usersName << " Play: " << usersInput << endl; 
-                computerScore += 1;
-            }
-    
+        if (computersPlay == "Scissors" && (usersInput == "Paper" || usersInput == "paper")) {
+            cout << endl;
+            cout << "Computer Wins!" << endl;
+            cout << "Computer's Play: " << computersPlay << endl;
+            cout << usersName << " Play: " << usersInput << endl; 
+            computerScore += 1;
+        }
+
         //Generate Ties
         if ((computersPlay == "Rock" && (usersInput == "Rock" || usersInput == "rock")) ||
             (computersPlay == "Paper" && (usersInput == "Paper" || usersInput == "paper")) || 
             (computersPlay == "Scissors" && (usersInput == "Scissors" || usersInput == "scissors"))) {
-                cout << endl;
-                cout << "It's a Tie!" << endl;
-                cout << "Computer's Play: " << computersPlay << endl;
-                cout << usersName << " Play: " << usersInput << endl;
+            cout << endl;
+            cout << "It's a Tie!" << endl;
+            cout << "Computer's Play: " << computersPlay << endl;
+            cout << usersName << " Play: " << usersInput << endl;
         }
 
         //Showcase Scoreboard
@@ -165,5 +165,6 @@ int main () {
             cout << "Come Back Soon!" << endl;
         } 
     }
+    
     return 0;
 }
