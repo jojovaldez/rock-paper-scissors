@@ -13,6 +13,7 @@ int main () {
     string computersPlay; 
     int computerScore;
     int userScore; 
+    string gameContinuation;
 
     //Set Standards
     computerScore = 0;
@@ -38,93 +39,131 @@ int main () {
     cout << "Enter Your Name: " << endl;
     getline(cin, usersName);
 
-    //Ask User for Input
-    cout << "Enter Your Play: " << endl;
-    getline(cin, usersInput);
+    //Ask User if they Want to Play/ Continue
+    cout << "Want to Play?" << endl;
+    cout << "Type Y (yes) or N (no) ";
+    getline(cin, gameContinuation);
 
-   //States Valid Inputs for User
-    if ((usersInput != "Rock") && (usersInput != "Paper") && (usersInput != "Scissors") && (usersInput != "rock") && 
-        (usersInput != "paper") && (usersInput != "scissors")) {
-            cout << "Invalid Input!" << endl;
-            cout << "Please try again and enter with no spaces and only upper or lowercase \"Rock\" \"Paper\" \"Scissors\"" << endl;
-            getline(cin, usersInput);
+    //Invalid Inputs for Game Continuation
+        if ((gameContinuation != "Y" && gameContinuation != "N")) {
+                cout << "Invalid Input!" << endl;
+                cout << "Please try again and enter with no spaces and only uppercase \"Y\" (yes) or \"N\" (no) ";
+                getline(cin, gameContinuation);
+        } else if (gameContinuation == "N") {
+            cout << "Come Back Soon!" << endl;
+            cout << endl;
         }
 
-    //Randomaly Generated Number
-    srand(time(NULL));
-    generatedNumber = (rand() % 3) + 1;
+    //While Statement to Keep Game Going
+    while (gameContinuation == "Y") {
+        cout << "Enter Your Play: " << endl;     //Asks for Users Input
+        getline(cin, usersInput);
+        
+        //Invalid Inputs for UsersInput
+        if ((usersInput != "Rock") && (usersInput != "Paper") && (usersInput != "Scissors") && (usersInput != "rock") && 
+            (usersInput != "paper") && (usersInput != "scissors")) {
+                cout << "Invalid Input!" << endl;
+                cout << "Please try again and enter with no spaces and only upper or lowercase \"Rock\" \"Paper\" \"Scissors\": ";
+                getline(cin, usersInput);
+            }
 
-    //Generates Computers Play
-    if (generatedNumber == 1) {
-        computersPlay = "Rock";
+        //Randomaly Generated Number
+        srand(time(NULL));
+        generatedNumber = (rand() % 3) + 1;
+
+        //Generates Computers Play
+        if (generatedNumber == 1) {
+            computersPlay = "Rock";
+        }
+        else if (generatedNumber == 2) {
+            computersPlay = "Paper";
+        }
+        else {
+            computersPlay = "Scissors";
+        }
+
+        //User Wins
+            if (computersPlay == "Rock" && (usersInput == "Paper" || usersInput == "paper")) {
+                cout << endl;
+                cout << usersName << " Win!" << endl;
+                cout << "Computer's Play: " << computersPlay << endl;
+                cout << usersName << " Play: " << usersInput << endl; 
+                userScore += 1;
+            }
+
+            if (computersPlay == "Paper" && (usersInput == "Scissors" || usersInput == "scissors")) {
+                cout << endl;
+                cout << usersName << " Win!" << endl;
+                cout << "Computer's Play: " << computersPlay << endl;
+                cout << usersName << " Play: " << usersInput << endl; 
+                userScore += 1;
+            }
+
+            if (computersPlay == "Scissors" && (usersInput == "Rock" || usersInput == "rock")) {
+                cout << endl;
+                cout << usersName << " Win!" << endl;
+                cout << "Computer's Play: " << computersPlay << endl;
+                cout << usersName << " Play: " << usersInput << endl; 
+                userScore += 1;
+            }
+
+        //Computer Wins
+            if (computersPlay == "Rock" && (usersInput == "Scissors" || usersInput == "scissors")) {
+                cout << endl;
+                cout << "Computer Wins!" << endl;
+                cout << "Computer's Play: " << computersPlay << endl;
+                cout << usersName << " Play: " << usersInput << endl; 
+                computerScore += 1;
+            }
+
+            if (computersPlay == "Paper" && (usersInput == "Rock" || usersInput == "rock")) {
+                cout << endl;
+                cout << "Computer Wins!" << endl;
+                cout << "Computer's Play: " << computersPlay << endl;
+                cout << usersName << " Play: " << usersInput << endl; 
+                computerScore += 1;
+            }
+
+            if (computersPlay == "Scissors" && (usersInput == "Paper" || usersInput == "paper")) {
+                cout << endl;
+                cout << "Computer Wins!" << endl;
+                cout << "Computer's Play: " << computersPlay << endl;
+                cout << usersName << " Play: " << usersInput << endl; 
+                computerScore += 1;
+            }
+    
+        //Generate Ties
+        if ((computersPlay == "Rock" && (usersInput == "Rock" || usersInput == "rock")) ||
+            (computersPlay == "Paper" && (usersInput == "Paper" || usersInput == "paper")) || 
+            (computersPlay == "Scissors" && (usersInput == "Scissors" || usersInput == "scissors"))) {
+                cout << endl;
+                cout << "It's a Tie!" << endl;
+                cout << "Computer's Play: " << computersPlay << endl;
+                cout << usersName << " Play: " << usersInput << endl;
+        }
+
+        //Showcase Scoreboard
+        cout << endl;
+        cout << "---Score Board---" << endl;
+        cout << usersName << " Score: " << userScore << endl;
+        cout << "Computer's Score: " << computerScore << endl;
+        cout << endl;
+
+        //End Game
+        cout << "Want to Play Again? Enter \"Y\" or \"N\": ";
+        getline(cin, gameContinuation);
+
+        //Invalid Inputs for Game Continuation
+        if ((gameContinuation != "Y" && gameContinuation != "N")) {
+                cout << "Invalid Input!" << endl;
+                cout << "Please try again and enter with no spaces and only uppercase \"Y\" (yes) or \"N\" (no) ";
+                getline(cin, gameContinuation);
+        } 
+
+         if (gameContinuation == "N") {
+            cout << "Thanks for Playing!" << endl;
+            cout << "Come Back Soon!" << endl;
+        } 
     }
-    else if (generatedNumber == 2) {
-        computersPlay = "Paper";
-    }
-    else {
-        computersPlay = "Scissors";
-    }
-
-//Tik Tak Toe!!!
-    //User Wins
-    if (true) {
-        if (computersPlay == "Rock" && (usersInput == "Paper" || usersInput == "paper")) {
-            cout << usersName << " Win!" << endl;
-            cout << "Computer's Play: " << computersPlay << endl;
-            cout << usersName << " Play: " << usersInput << endl; 
-        }
-
-        if (computersPlay == "Paper" && (usersInput == "Scissors" || usersInput == "scissors")) {
-            cout << usersName << " Win!" << endl;
-            cout << "Computer's Play: " << computersPlay << endl;
-            cout << usersName << " Play: " << usersInput << endl; 
-        }
-
-        if (computersPlay == "Scissors" && (usersInput == "Rock" || usersInput == "rock")) {
-            cout << usersName << " Win!" << endl;
-            cout << "Computer's Play: " << computersPlay << endl;
-            cout << usersName << " Play: " << usersInput << endl; 
-        }
-        userScore += 1;
-    }
-
-    //Computer Wins
-    if (true) {
-        if (computersPlay == "Rock" && (usersInput == "Scissors" || usersInput == "scissors")) {
-        cout << "Computer Wins!" << endl;
-        cout << "Computer's Play: " << computersPlay << endl;
-        cout << usersName << " Play: " << usersInput << endl; 
-        }
-
-        if (computersPlay == "Paper" && (usersInput == "Rock" || usersInput == "rock")) {
-            cout << "Computer Wins!" << endl;
-            cout << "Computer's Play: " << computersPlay << endl;
-            cout << usersName << " Play: " << usersInput << endl; 
-        }
-
-        if (computersPlay == "Scissors" && (usersInput == "Paper" || usersInput == "paper")) {
-            cout << "Computer Wins!" << endl;
-            cout << "Computer's Play: " << computersPlay << endl;
-            cout << usersName << " Play: " << usersInput << endl; 
-        }
-        computerScore += 1;
-    }
-
-    //Generate Ties
-    if ((computersPlay == "Rock" && (usersInput == "Rock" || usersInput == "rock")) ||
-        (computersPlay == "Paper" && (usersInput == "Paper" || usersInput == "paper")) || 
-        (computersPlay == "Scissors" && (usersInput == "Scissors" || usersInput == "scissors"))) {
-            cout << "It's a Tie!" << endl;
-            cout << "Computer's Play: " << computersPlay << endl;
-            cout << usersName << " Play: " << usersInput << endl;
-    }
-
-    //Showcase Scoreboard
-    cout << endl;
-    cout << "---Score Board---" << endl;
-    cout << usersName << " Score: " << userScore << endl;
-    cout << "Computer's Score: " << computerScore << endl;
-    cout << endl;
-
     return 0;
 }
