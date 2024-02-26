@@ -46,9 +46,9 @@ int main () {
 
     //Invalid Inputs for Game Continuation
     if ((gameContinuation != "Y" && gameContinuation != "N")) {
-            cout << "Invalid Input!" << endl;
-            cout << "Please try again and enter with no spaces and only uppercase \"Y\" (yes) or \"N\" (no) ";
-            getline(cin, gameContinuation);
+        cout << "Invalid Input!" << endl;
+        cout << "Please try again and enter with no spaces and only uppercase \"Y\" (yes) or \"N\" (no) ";
+        getline(cin, gameContinuation);
     } else if (gameContinuation == "N") {
         cout << "Come Back Soon!" << endl;
         cout << endl;
@@ -155,9 +155,9 @@ int main () {
 
         //Invalid Inputs for Game Continuation
         if ((gameContinuation != "Y" && gameContinuation != "N")) {
-                cout << "Invalid Input!" << endl;
-                cout << "Please try again and enter with no spaces and only uppercase \"Y\" (yes) or \"N\" (no) ";
-                getline(cin, gameContinuation);
+            cout << "Invalid Input!" << endl;
+            cout << "Please try again and enter with no spaces and only uppercase \"Y\" (yes) or \"N\" (no) ";
+            getline(cin, gameContinuation);
         } 
 
          if (gameContinuation == "N") {
